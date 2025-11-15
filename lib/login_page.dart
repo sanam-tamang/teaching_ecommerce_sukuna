@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +11,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isObscureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +48,27 @@ class _LoginPageState extends State<LoginPage> {
 
                 TextField(
                   controller: passwordController,
+                  obscureText: isObscureText,
                   decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isObscureText = !isObscureText;
+
+                          ///true raixa vane false banauxa
+                          //false raixa vane true banauxa
+                          // if (isObscureText == true) {
+                          //   isObscureText = f
+                          // alse;
+                          // } else {
+                          //   isObscureText = true;
+                          // }
+                        });
+                      },
+                      icon: Icon(
+                        isObscureText ? Icons.visibility : Icons.visibility_off,
+                      ),
+                    ),
                     hintText: "Password",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -57,7 +79,9 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: double.maxFinite,
                   height: 48,
-                  child: FilledButton(onPressed: () {}, child: Text("Login")),
+                  child: FilledButton(onPressed: () {
+                    
+                  }, child: Text("Login")),
                 ),
               ],
             ),

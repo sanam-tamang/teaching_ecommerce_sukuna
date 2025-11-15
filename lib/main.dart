@@ -1,4 +1,4 @@
-import 'package:ecommerce/home_page.dart';
+import 'package:ecommerce/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,8 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Sukuna Ecommerce',
-
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }

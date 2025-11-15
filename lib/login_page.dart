@@ -1,3 +1,4 @@
+import 'package:ecommerce/home_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -79,9 +80,23 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: double.maxFinite,
                   height: 48,
-                  child: FilledButton(onPressed: () {
-                    
-                  }, child: Text("Login")),
+                  child: FilledButton(
+                    onPressed: () {
+                      if (usernameController.text == "admin" &&
+                          passwordController.text == "1234") {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("Invalid username or password"),
+                          ),
+                        );
+                      }
+                    },
+                    child: Text("Login"),
+                  ),
                 ),
               ],
             ),
